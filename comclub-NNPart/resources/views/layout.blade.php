@@ -29,9 +29,13 @@
         .navbar-brand {
             font-weight: bold;
             font-family: "Jersey 10", sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #2f2f2f;
         }
+        .navbar-nav{
+            font-size: 1.1rem;
+        }
+
     </style>
 </head>
 
