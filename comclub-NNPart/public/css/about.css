@@ -1,7 +1,310 @@
-.text{
-    font-size: 5rem;
-    color: blueviolet;
-    background-color: aqua;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #2f2f2f;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.body{
+    color: #2f2f2f ;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    font-family: "Kanit", sans-serif;
+    text-align: center; 
+    position: relative; /* ทำให้สามารถจัดการตำแหน่งภายในได้ */
+    box-sizing: border-box; /* รวม padding และ margin ในการคำนวณขนาด */
+}
+
+.animated-text{
+    font-size: 4rem;
+    font-weight: 600;
+    min-width: 280px;
+    position: absolute;
+    top: 20px;
     text-align: center;
-    
+}
+
+.animated-text span{
+    position: relative;
+}
+
+.animated-text span::before{
+    content: "คลับภาค!";
+    background-image: linear-gradient(to right, #1860c3, #945dbc, #d05fa6, #f2708c, #ff8e76, #ffa075, #ffb277, #ffc47e, #ffc88c, #ffcd99, #ffd1a6, #ffd6b3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    animation: words 30s infinite;
+}
+
+.animated-text span::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: white;
+    border-left: 2px solid #2f2f2f;
+    right: -8px;
+    animation: cursor .8s infinite, typing 30s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid #ff7f5000;
+    }
+}
+
+@keyframes words {
+    0%,20%{
+        content: "ComClub !";
+        background-image: linear-gradient(to right, #1860c3, #945dbc, #d05fa6, #f2708c, #ff8e76, #ffa075, #ffb277, #ffc47e, #ffc88c, #ffcd99, #ffd1a6, #ffd6b3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    }
+    21%,40%{
+        content: "คลับภาค !";
+        background-image: linear-gradient(to right, #1860c3, #945dbc, #d05fa6, #f2708c, #ff8e76, #ffa075, #ffb277, #ffc47e, #ffc88c, #ffcd99, #ffd1a6, #ffd6b3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    }
+    41%,60%{
+        content: "ComClub !";
+        background-image: linear-gradient(to right, #1860c3, #945dbc, #d05fa6, #f2708c, #ff8e76, #ffa075, #ffb277, #ffc47e, #ffc88c, #ffcd99, #ffd1a6, #ffd6b3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    }
+    61%,80%{
+        content: "คลับภาค !";
+        background-image: linear-gradient(to right, #1860c3, #945dbc, #d05fa6, #f2708c, #ff8e76, #ffa075, #ffb277, #ffc47e, #ffc88c, #ffcd99, #ffd1a6, #ffd6b3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    }
+    81%,100%{
+        content: "ComClub !";
+        background-image: linear-gradient(to right, #1860c3, #945dbc, #d05fa6, #f2708c, #ff8e76, #ffa075, #ffb277, #ffc47e, #ffc88c, #ffcd99, #ffd1a6, #ffd6b3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+}
+
+.content {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+    flex-wrap: wrap; /* เพื่อให้เนื้อหาสามารถยืดหยุ่นได้ */ 
+}
+
+.text {
+    display: flex;
+    flex-direction: column; /* จัดข้อความให้อยู่ในแนวตั้ง */
+    text-align: left; /* ข้อความอยู่ทางซ้าย */
+}
+
+img {
+    max-width: 100%; /* ปรับให้ภาพไม่เกินขนาดหน้าจอ */
+    max-height: 70vh; /* จำกัดขนาดสูงสุดของภาพ */
+    margin-right: 50px; /* ลดระยะห่าง */
+    object-fit: contain;
+    animation: moveUpDown 2s infinite ease-in-out;
+}
+/* Animation: เคลื่อนที่ขึ้นลง */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0); /* เริ่มต้นที่ตำแหน่งปกติ */
+    }
+    50% {
+        transform: translateY(-20px); /* เลื่อนขึ้น 20px */
+    }
+    100% {
+        transform: translateY(0); /* กลับมาที่ตำแหน่งเดิม */
+    }
+}
+
+.text h2 i{
+    color: #2f2f2f ;
+}
+
+.text h2{
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.text p{
+    color:#5a5959;
+    font-weight:normal;
+}
+
+.blue{
+    color: #1860c3;
+}
+
+.yellow{
+    color:#ffbf6b;
+}
+
+/* สำหรับหน้าจอมือถือขนาดเล็ก (เล็กกว่า 426px) */
+@media (max-width: 321px) {
+    .content {
+        display: flex;
+        flex-direction: column; /* จัดข้อความให้อยู่ใต้ภาพ */
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px; /* เพิ่ม padding เพื่อป้องกันการทับกับขอบจอ */
+        gap: 20px; /* เพิ่มระยะห่างระหว่างภาพและข้อความ */
+        text-align: center;
+    }
+
+    .animated-text {
+        font-size: 1.8rem; /* ลดขนาดฟอนต์ */
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 60%; /* ลดขนาดภาพให้เล็กลง */
+        height: auto;
+        max-height: 200px; /* จำกัดความสูงของภาพ */
+        margin-top:180px; /* ลดระยะห่างด้านบน */
+        margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+    }
+
+    .text h2 {
+        font-size: 1rem; /* ลดขนาดฟอนต์ให้เล็กลง */
+    }
+
+    .text p {
+        font-size: 0.75rem; /* ลดขนาดฟอนต์ของข้อความ */
+    }
+}
+
+/* สำหรับหน้าจอมือถือขนาดเล็ก (เล็กกว่า 426px) */
+@media (max-width: 426px) and (min-width: 321px) {
+    .content {
+        display: flex;
+        flex-direction: column; /* จัดข้อความให้อยู่ใต้ภาพ */
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px; /* เพิ่ม padding เพื่อป้องกันการทับกับขอบจอ */
+        gap: 20px; /* เพิ่มระยะห่างระหว่างภาพและข้อความ */
+        text-align: center;
+    }
+
+    .animated-text {
+        font-size: 2.2rem; /* ลดขนาดฟอนต์ */
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 70%; /* ลดขนาดภาพให้เล็กลง */
+        height: auto;
+        max-height: 230px; /* จำกัดความสูงของภาพ */
+        margin-top: 230px; /* ลดระยะห่างด้านบน */
+        margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+    }
+
+    .text h2 {
+        font-size: 1rem; /* ลดขนาดฟอนต์ให้เล็กลง */
+    }
+
+    .text p {
+        font-size: 0.75rem; /* ลดขนาดฟอนต์ของข้อความ */
+    }
+}
+/* สำหรับหน้าจอมือถือขนาดเล็ก (เล็กกว่า 768px) */
+@media (max-width: 768px) and (min-width: 426px) {
+    .content {
+        display: flex;
+        flex-direction: column; /* ทำให้ข้อความอยู่ใต้รูปภาพ */
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* เพิ่ม padding เพื่อไม่ให้เนื้อหาทับกับขอบจอ */
+        text-align: center; /* ให้ข้อความอยู่ตรงกลาง */
+    }
+
+    img {
+        width: 80%; /* ลดขนาดภาพให้พอดีกับหน้าจอ */
+        height: auto;
+        margin-bottom: 20px; /* เพิ่มระยะห่าง */
+    }
+
+    .text h2 {
+        font-size: 1.4rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .body {
+        padding: 20px;
+        height: auto;
+        text-align: center;
+    }
+
+    .animated-text {
+        font-size: 3rem;
+        top: 10px;
+        text-align: center;
+    }
+
+    /* ทำให้ content เปลี่ยนแปลงจากแนวนอนเป็นแนวตั้ง */
+    .content {
+        flex-direction: column; /* ให้จัดเรียงในแนวตั้ง */
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* รูปภาพ */
+    img {
+        width: 50%; /* ขยายให้เต็มพื้นที่หน้าจอ */
+        max-width: auto; /* ไม่ให้เกิน 90% ของความกว้างหน้าจอ */
+        margin-right: 0;
+        margin-top: 110px;
+        margin-bottom: 40px; /* เพิ่มระยะห่างระหว่างรูปภาพกับข้อความ */
+    }
+
+    /* ข้อความ */
+    .text {
+        text-align: center;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .text h2 {
+        font-size: 1.6rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+    }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่กว่า 1025px */
+@media (min-width: 1025px) {
+    .content {
+        flex-direction: row; /* จัดข้อความและภาพให้อยู่ข้างกัน */
+        justify-content: space-between;
+    }
 }
