@@ -1,0 +1,251 @@
+body{
+    margin: 0;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar .nav-link {
+    color: white;
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffcc66; 
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navbar .nav-link:hover span {
+    color: #ffcc66;
+}
+
+.navbar .nav-link:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+
+}
+
+.navbar-nav .nav-item {
+    margin-right: 30px; 
+    display: flex;
+    align-items: center;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white; 
+    background-image: url('dark.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+label{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+}
+input{
+    position: absolute;
+    opacity: 0;
+}
+.sun{
+    position: absolute;
+    font-size: 3em;
+    color:#666;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+   transform: scale(0);
+    transition: 0.6s ease;
+
+}
+input:checked~.sun{
+    transform: scale(1) rotate(360deg) ;
+    transition-delay: 0.4s;
+}
+.moon{
+    position: absolute;
+    font-size: 3em;
+    color:#666;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+    transition: 1s ease;
+    transition-delay: 0.4s;
+}
+input:checked~.moon{
+    transition-delay: 0s;
+    transform: rotate(360deg) scale(0);
+}
+
+.toggle{
+    position: absolute;
+    display: block;
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 8px 60px rgba(0,0,0,0.1),
+        inset 0 8px 8px rgba(0,0,0,0.1),
+        inset 0 -4px 4px rgba(0,0,0,0.1);
+    z-index: -1;
+    transition: 1s;
+}
+
+.sun, .moon {
+    font-size: 1.5em;
+}
+
+input:checked~.toggle{
+    background: #f8f8f8;
+}
+.animateBg{
+    width:100%;
+    height: 100vh;
+    z-index: -2;
+    clip-path: circle(0% at 50% 50%);
+    transition: 1.5s ease-out;
+
+}
+input:checked~.animateBg{
+    clip-path: circle(150% at 50% 50%);
+}
+
+section{
+    padding: 0 14%;
+}
+.content{
+    position: relative;
+    width:100%;
+    height:100vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap:2rem;
+}
+.content-text h1 {
+    font-size: 100px;
+    font-weight: 700;
+    margin: 15px 0;
+    background: linear-gradient(135deg, #ff6b6b, #f0c27b); 
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 
+        6px 6px 0 #ebb15b,  
+        3px 3px 0 #333,     
+        1px 1px 2px rgba(0, 0, 0, 0.2); 
+    letter-spacing: 1px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 32px;
+    background: linear-gradient(135deg, #ffcc66, #ff9966);
+    border-radius: 40px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.6s ease;
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 204, 102, 0.6); 
+}
+
+.btn::before, .btn::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.btn::before {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0.2s;
+}
+.btn::after {
+    top: 60%;
+    left: 75%;
+    animation-delay: 0.6s;
+}
+
+.btn::before {
+    top: 30%;
+    left: 45%;
+    animation-delay: 0.4s;
+}
+.btn::after {
+    top: 80%;
+    left: 25%;
+    animation-delay: 0.8s;
+}
+
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.6);
+        opacity: 1;
+    }
+}
+
+.navbar .nav-link {
+    color:white; 
+}
